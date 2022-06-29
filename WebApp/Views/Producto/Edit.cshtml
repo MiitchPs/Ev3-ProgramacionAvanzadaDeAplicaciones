@@ -1,0 +1,86 @@
+﻿@model Producto
+
+@{
+    ViewData["Title"] = "Editar Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Modifique la Informacion del Producto</h4>
+<h4>NO SIRVE ESTE EDITAR NO SUPE COMO HACERLO PROFE XD</h4>
+<h4>NO SIRVE ESTE EDITAR NO SUPE COMO HACERLO PROFE XD</h4>
+<h4>NO SIRVE ESTE EDITAR NO SUPE COMO HACERLO PROFE XD</h4>
+<h4>NO SIRVE ESTE EDITAR NO SUPE COMO HACERLO PROFE XD</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="Id" value="@Model.Id" hidden />
+            <div class="form-group m-2">
+                <input asp-for="Nombre" value="@Model.Nombre" class="form-control" placeholder="Nombre del Producto" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group m-2">
+                <input asp-for="DescripcionLarga" value="@Model.DescripcionLarga" class="form-control" placeholder="Descripcion del Producto" />
+                <span asp-validation-for="DescripcionLarga" class="text-danger"></span>
+            </div>
+
+            
+                <div class="form-group form-check m-2">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="UVRayos" value="@Model.UVRayos" /> UV RAYOS
+                        <span asp-validation-for="UVRayos"></span>
+                    </label>
+                </div>
+                <div class="form-group form-check m-2">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="UVNORayos" value="@Model.UVNORayos" /> UV RAYOS
+                        <span asp-validation-for="UVNORayos"></span>
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Imagen Produto</label>
+                    <input class="form-control" asp-for="ImagenFile" value="@Model.ImagenUrl" id="formFile">
+                    <span asp-validation-for="ImagenUrl"></span>
+                </div>
+
+              <div class="col-md-3">
+                <div class="form-group m-2">
+                    <label class="control-label">Marca</label>
+                    <select asp-for="MarcaId" class="form-select" value="@Model.MarcaId"></select>
+                    <span asp-validation-for="MarcaId"></span>
+                </div>
+                 <div class="form-group m-2">
+                <input asp-for="TipoId" value="@Model.TipoId" class="form-control" placeholder="Descripcion del Producto" />
+                <span asp-validation-for="TipoId" class="text-danger"></span>
+            </div>
+                <div class="form-group m-2">
+                    <label class="control-label">Sucursales</label>
+                    <select asp-for="SucursalId" class="form-select" asp-items="ViewBag.Sucursales"></select>
+                    <span asp-validation-for="SucursalId"></span>
+                </div>
+                <div class="form-group m-2">
+                    <label class="control-label">Categoria</label>
+                    <select asp-for="CategoriaId" class="form-select" asp-items="ViewBag.Categorias"></select>
+                    <span asp-validation-for="CategoriaId"></span>
+                </div>
+            </div>
+
+
+
+
+                
+            <div class="form-group m-2">
+                <input type="submit" value="Guardar Cambios" class="btn btn-outline-danger col-12" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mt-5">
+    <a class="btn btn-outline-danger" asp-action="Index">Regresar al Listado</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
